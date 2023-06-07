@@ -1,7 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
-#include "ReadmeAssetEditorPrivatePCH.h"
-#include "SMultiLineEditableTextBox.h"
+#include "SReadmeAssetEditor.h"
+
 
 
 #define LOCTEXT_NAMESPACE "SReadmeAssetEditor"

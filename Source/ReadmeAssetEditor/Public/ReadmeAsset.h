@@ -2,7 +2,9 @@
 
 #pragma once
 
-#include "TextAsset.generated.h"
+#include "CoreMinimal.h"
+#include "UObject/UnrealType.h"
+#include "ReadmeAsset.generated.h"
 
 
 /**
@@ -10,7 +12,7 @@
  * or documentation.
  */
 UCLASS(BlueprintType, hidecategories=(Object))
-class TEXTASSET_API UTextAsset
+class READMEASSETEDITOR_API UReadmeAsset
 	: public UObject
 {
 	GENERATED_BODY()

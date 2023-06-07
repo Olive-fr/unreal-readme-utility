@@ -1,7 +1,9 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
-#include "ReadmeAssetEditorPrivatePCH.h"
 #include "ReadmeAssetFactory.h"
+
+#include "ReadmeAsset.h"
+#include "Misc/FileHelper.h"
 
 
 /* UReadmeAssetFactory structors

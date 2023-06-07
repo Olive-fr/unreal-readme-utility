@@ -4,6 +4,7 @@
 
 #include "Toolkits/AssetEditorToolkit.h"
 #include "EditorUndoClient.h"
+#include "ReadmeAsset.h"
 
 
 /**
@@ -42,8 +43,8 @@ public:
 	// FAssetEditorToolkit interface
 
 	virtual FString GetDocumentationLink() const override;
-	virtual void RegisterTabSpawners(const TSharedRef<class FTabManager>& TabManager) override;
-	virtual void UnregisterTabSpawners(const TSharedRef<class FTabManager>& TabManager) override;
+	virtual void RegisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager) override;
+	virtual void UnregisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager) override;
 
 public:
 

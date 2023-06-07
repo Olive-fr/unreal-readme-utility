@@ -1,61 +1,36 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+﻿#pragma once
+
+#include "CoreMinimal.h"
+#include "AssetToolsModule.h"
+#include "IAssetTools.h"
+#include "IAssetTypeActions.h"
+#include "AssetTools/ReadmeAssetActions.h"
+#include "Modules/ModuleManager.h"
 
 
-#include "ReadmeAssetEditorPrivatePCH.h"
-#include "ModuleInterface.h"
-
-
-#define LOCTEXT_NAMESPACE "FReadmeAssetEditorModule"
-
-
-/**
- * Implements the ReadmeAssetEditor module.
- */
-class FReadmeAssetEditorModule
-	: public IHasMenuExtensibility
+class FReadmeAssetEditorModule: public IHasMenuExtensibility
 	, public IHasToolBarExtensibility
 	, public IModuleInterface
 {
 public:
+	virtual void StartupModule() override;
+	virtual void ShutdownModule() override;
 
+public:
 	// IHasMenuExtensibility interface
-
 	virtual TSharedPtr<FExtensibilityManager> GetMenuExtensibilityManager() override
 	{
 		return MenuExtensibilityManager;
 	}
 
 public:
-
 	// IHasToolBarExtensibility interface
-
 	virtual TSharedPtr<FExtensibilityManager> GetToolBarExtensibilityManager() override
 	{
 		return ToolBarExtensibilityManager;
 	}
 
-public:
-
-	// IModuleInterface interface
-
-	virtual void StartupModule() override
-	{
-		Style = MakeShareable(new FReadmeAssetEditorStyle());
-
-//		FReadmeAssetEditorCommands::Register();
-
-		RegisterAssetTools();
-		RegisterMenuExtensions();
-	}
-
-	virtual void ShutdownModule() override
-	{
-		UnregisterAssetTools();
-		UnregisterMenuExtensions();
-	}
-
 protected:
-
 	/** Registers asset tool actions. */
 	void RegisterAssetTools()
 	{
@@ -92,8 +67,6 @@ protected:
 		}
 	}
 
-protected:
-
 	/** Registers main menu and tool bar menu extensions. */
 	void RegisterMenuExtensions()
 	{
@@ -109,7 +82,6 @@ protected:
 	}
 
 private:
-
 	/** Holds the menu extensibility manager. */
 	TSharedPtr<FExtensibilityManager> MenuExtensibilityManager;
 
@@ -122,9 +94,3 @@ private:
 	/** Holds the tool bar extensibility manager. */
 	TSharedPtr<FExtensibilityManager> ToolBarExtensibilityManager;
 };
-
-
-IMPLEMENT_MODULE(FReadmeAssetEditorModule, ReadmeAssetEditor);
-
-
-#undef LOCTEXT_NAMESPACE

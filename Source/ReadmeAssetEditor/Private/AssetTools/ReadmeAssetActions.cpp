@@ -1,7 +1,10 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
-#include "ReadmeAssetEditorPrivatePCH.h"
+#include "ReadmeAssetActions.h"
+
 #include "ContentBrowserModule.h"
+#include "ReadmeAsset.h"
+#include "ReadmeAssetEditorToolkit.h"
 
 
 #define LOCTEXT_NAMESPACE "AssetTypeActions"

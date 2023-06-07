@@ -1,8 +1,13 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
-#include "ReadmeAssetEditorPrivatePCH.h"
+#include "ReadmeAssetEditorToolkit.h"
+
+#include "EditorReimportHandler.h"
+#include "EditorStyleSet.h"
 #include "Factories.h"
-#include "SDockTab.h"
+#include "ReadmeAsset.h"
+//#include "SDockTab.h"
+#include "Widgets/SReadmeAssetEditor.h"
 
 
 #define LOCTEXT_NAMESPACE "FReadmeAssetEditorToolkit"
@@ -97,25 +102,25 @@ FString FReadmeAssetEditorToolkit::GetDocumentationLink() const
 }
 
 
-void FReadmeAssetEditorToolkit::RegisterTabSpawners(const TSharedRef<class FTabManager>& TabManager)
+void FReadmeAssetEditorToolkit::RegisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager)
 {
-	WorkspaceMenuCategory = TabManager->AddLocalWorkspaceMenuCategory(LOCTEXT("WorkspaceMenu_ReadmeAssetEditor", "Text Asset Editor"));
+	WorkspaceMenuCategory = InTabManager->AddLocalWorkspaceMenuCategory(LOCTEXT("WorkspaceMenu_ReadmeAssetEditor", "Text Asset Editor"));
 	auto WorkspaceMenuCategoryRef = WorkspaceMenuCategory.ToSharedRef();
 
-	FAssetEditorToolkit::RegisterTabSpawners(TabManager);
+	FAssetEditorToolkit::RegisterTabSpawners(InTabManager);
 
-	TabManager->RegisterTabSpawner(TextEditorTabId, FOnSpawnTab::CreateSP(this, &FReadmeAssetEditorToolkit::HandleTabManagerSpawnTab, TextEditorTabId))
+	InTabManager->RegisterTabSpawner(TextEditorTabId, FOnSpawnTab::CreateSP(this, &FReadmeAssetEditorToolkit::HandleTabManagerSpawnTab, TextEditorTabId))
 		.SetDisplayName(LOCTEXT("TextEditorTabName", "Text Editor"))
 		.SetGroup(WorkspaceMenuCategoryRef)
 		.SetIcon(FSlateIcon(FEditorStyle::GetStyleSetName(), "LevelEditor.Tabs.Viewports"));
 }
 
 
-void FReadmeAssetEditorToolkit::UnregisterTabSpawners(const TSharedRef<class FTabManager>& TabManager)
+void FReadmeAssetEditorToolkit::UnregisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager)
 {
-	FAssetEditorToolkit::UnregisterTabSpawners(TabManager);
+	FAssetEditorToolkit::UnregisterTabSpawners(InTabManager);
 
-	TabManager->UnregisterTabSpawner(TextEditorTabId);
+	InTabManager->UnregisterTabSpawner(TextEditorTabId);
 }
 
 
