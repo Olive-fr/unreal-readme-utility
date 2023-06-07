@@ -20,6 +20,6 @@ class READMEASSETEDITOR_API UReadmeAsset
 public:
 
 	/** Holds the stored text. */
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="TextAsset")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="ReadmeAsset")
 	FText Text;
 };

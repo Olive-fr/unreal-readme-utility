@@ -8,18 +8,18 @@
 /**
  * Implements the UReadmeAsset asset editor widget.
  */
-class SReadmeAssetEditor
+class SReadmeViewerAssetEditor
 	: public SCompoundWidget
 {
 public:
 
-	SLATE_BEGIN_ARGS(SReadmeAssetEditor) { }
+	SLATE_BEGIN_ARGS(SReadmeViewerAssetEditor) { }
 	SLATE_END_ARGS()
 
 public:
 
 	/** Virtual destructor. */
-	virtual ~SReadmeAssetEditor();
+	virtual ~SReadmeViewerAssetEditor();
 
 	/**
 	 * Construct this widget
@@ -30,7 +30,6 @@ public:
 	 */
 	void Construct(const FArguments& InArgs, UReadmeAsset* InReadmeAsset, const TSharedRef<ISlateStyle>& InStyle);
 
-	void AddReferencedObjects( FReferenceCollector& Collector );
 private:
 
 	/** Callback for text changes in the editable text box. */

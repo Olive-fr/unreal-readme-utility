@@ -13,6 +13,7 @@ UReadmeAssetFactory::UReadmeAssetFactory( const FObjectInitializer& ObjectInitia
 	: Super(ObjectInitializer)
 {
 	Formats.Add(FString(TEXT("txt;")) + NSLOCTEXT("UReadmeAssetFactory", "FormatTxt", "Text File").ToString());
+	Formats.Add(FString(TEXT("md;")) + NSLOCTEXT("UReadmeAssetFactory", "FormatMarkdown", "Readme File").ToString());
 	SupportedClass = UReadmeAsset::StaticClass();
 	bCreateNew = false;
 	bEditorImport = true;

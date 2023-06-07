@@ -71,7 +71,7 @@ uint32 FReadmeAssetActions::GetCategories()
 
 FText FReadmeAssetActions::GetName() const
 {
-	return NSLOCTEXT("AssetTypeActions", "AssetTypeActions_ReadmeAsset", "Text Asset");
+	return NSLOCTEXT("AssetTypeActions", "AssetTypeActions_ReadmeAsset", "Readme Asset");
 }
 
 

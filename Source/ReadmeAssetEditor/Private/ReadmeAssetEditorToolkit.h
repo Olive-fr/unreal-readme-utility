@@ -5,6 +5,8 @@
 #include "Toolkits/AssetEditorToolkit.h"
 #include "EditorUndoClient.h"
 #include "ReadmeAsset.h"
+#include "Widgets/SReadmeAssetEditor.h"
+#include "Widgets/SReadmeViewerAssetEditor.h"
 
 
 /**
@@ -28,7 +30,7 @@ public:
 	virtual ~FReadmeAssetEditorToolkit();
 
 public:
-
+	void CreateInternalWidget();
 	/**
 	 * Initializes the editor tool kit.
 	 *
@@ -37,12 +39,19 @@ public:
 	 * @param InToolkitHost The toolkit host.
 	 */
 	void Initialize(UReadmeAsset* InReadmeAsset, const EToolkitMode::Type InMode, const TSharedPtr<class IToolkitHost>& InToolkitHost);
+	FSlateColor GetIsEditingButtonBackgroundColor() const;
+	FSlateColor GetIsEditingButtonForegroundColor() const;
+	ECheckBoxState OnGetIsEditingButtonCheckState() const;
+	bool IsIsEditingButtonEnabled() const;
+	TSharedRef<SWidget> MakeCanEditWidget();
+	void FillToolbar(FToolBarBuilder& ToolbarBuilder);
 
 public:
 
 	// FAssetEditorToolkit interface
 
 	virtual FString GetDocumentationLink() const override;
+	TSharedRef<SDockTab> HandleTabManagerSpawnViewerTab(const FSpawnTabArgs& SpawnTabArgs);
 	virtual void RegisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager) override;
 	virtual void UnregisterTabSpawners(const TSharedRef<class FTabManager>& InTabManager) override;
 
@@ -60,6 +69,10 @@ public:
 	// FGCObject interface
 
 	virtual void AddReferencedObjects(FReferenceCollector& Collector) override;
+	virtual FString GetReferencerName() const override
+	{
+		return TEXT("FReadmeAssetEditorToolkit");
+	}
 	
 protected:
 
@@ -71,7 +84,9 @@ protected:
 private:
 
 	/** Callback for spawning the Properties tab. */
-	TSharedRef<SDockTab> HandleTabManagerSpawnTab(const FSpawnTabArgs& Args, FName TabIdentifier);
+	TSharedRef<SDockTab> HandleTabManagerSpawnEditorTab(const FSpawnTabArgs& Args);
+
+	void OnCanEdit();
 
 private:
 
@@ -80,4 +95,8 @@ private:
 
 	/** Pointer to the style set to use for toolkits. */
 	TSharedRef<ISlateStyle> Style;
+
+	bool bIsEditing;
+	TSharedPtr<SReadmeAssetEditor> ReadmeEditor;
+	TSharedPtr<SReadmeViewerAssetEditor> ReadmeViewerEditor;
 };

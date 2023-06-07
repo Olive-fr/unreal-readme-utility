@@ -32,12 +32,7 @@ public:
 
 protected:
 	/** Registers asset tool actions. */
-	void RegisterAssetTools()
-	{
-		IAssetTools& AssetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-
-		RegisterAssetTypeAction(AssetTools, MakeShareable(new FReadmeAssetActions(Style.ToSharedRef())));
-	}
+	void RegisterAssetTools();
 
 	/**
 	 * Registers a single asset type action.
@@ -45,11 +40,8 @@ protected:
 	 * @param AssetTools The asset tools object to register with.
 	 * @param Action The asset type action to register.
 	 */
-	void RegisterAssetTypeAction(IAssetTools& AssetTools, TSharedRef<IAssetTypeActions> Action)
-	{
-		AssetTools.RegisterAssetTypeActions(Action);
-		RegisteredAssetTypeActions.Add(Action);
-	}
+	void RegisterAssetTypeAction(IAssetTools& AssetTools, TSharedRef<IAssetTypeActions> Action);
+
 
 	/** Unregisters asset tool actions. */
 	void UnregisterAssetTools()
@@ -68,11 +60,7 @@ protected:
 	}
 
 	/** Registers main menu and tool bar menu extensions. */
-	void RegisterMenuExtensions()
-	{
-		MenuExtensibilityManager = MakeShareable(new FExtensibilityManager);
-		ToolBarExtensibilityManager = MakeShareable(new FExtensibilityManager);
-	}
+	void RegisterMenuExtensions();
 
 	/** Unregisters main menu and tool bar menu extensions. */
 	void UnregisterMenuExtensions()

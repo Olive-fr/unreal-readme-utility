@@ -37,6 +37,11 @@ void SReadmeAssetEditor::Construct(const FArguments& InArgs, UReadmeAsset* InRea
 	FCoreUObjectDelegates::OnObjectPropertyChanged.AddSP(this, &SReadmeAssetEditor::HandleReadmeAssetPropertyChanged);
 }
 
+void SReadmeAssetEditor::AddReferencedObjects(FReferenceCollector& Collector)
+{
+	// Collector.
+}
+
 
 /* SReadmeAssetEditor callbacks
  *****************************************************************************/
