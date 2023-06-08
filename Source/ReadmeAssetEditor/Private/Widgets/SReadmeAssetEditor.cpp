@@ -1,7 +1,7 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
-#include "ReadmeAssetEditorPrivatePCH.h"
-#include "SMultiLineEditableTextBox.h"
+#include "SReadmeAssetEditor.h"
+
 
 
 #define LOCTEXT_NAMESPACE "SReadmeAssetEditor"
@@ -37,6 +37,11 @@ void SReadmeAssetEditor::Construct(const FArguments& InArgs, UReadmeAsset* InRea
 	FCoreUObjectDelegates::OnObjectPropertyChanged.AddSP(this, &SReadmeAssetEditor::HandleReadmeAssetPropertyChanged);
 }
 
+void SReadmeAssetEditor::AddReferencedObjects(FReferenceCollector& Collector)
+{
+	// Collector.
+}
+
 
 /* SReadmeAssetEditor callbacks
  *****************************************************************************/
@@ -44,12 +49,15 @@ void SReadmeAssetEditor::Construct(const FArguments& InArgs, UReadmeAsset* InRea
 void SReadmeAssetEditor::HandleEditableTextBoxTextChanged(const FText& NewText)
 {
 	ReadmeAsset->MarkPackageDirty();
+
+	// double TotalSeconds = FPlatformTime::Seconds();
+	// if (TotalSeconds - Last)
 }
 
 
 void SReadmeAssetEditor::HandleEditableTextBoxTextCommitted(const FText& Comment, ETextCommit::Type CommitType)
 {
-	ReadmeAsset->Text = EditableTextBox->GetText();
+	ReadmeAsset->SetText(EditableTextBox->GetText());
 }
 
 

@@ -1,6 +1,8 @@
 // Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
+#include "ReadmeAsset.h"
+#include "Widgets/Input/SMultiLineEditableTextBox.h"
 
 
 /**
@@ -28,6 +30,10 @@ public:
 	 */
 	void Construct(const FArguments& InArgs, UReadmeAsset* InReadmeAsset, const TSharedRef<ISlateStyle>& InStyle);
 
+	void AddReferencedObjects( FReferenceCollector& Collector );
+
+	// float MIN_UPDATE_TIME = 1;
+	// float LastUpdateTime = 0;
 private:
 
 	/** Callback for text changes in the editable text box. */

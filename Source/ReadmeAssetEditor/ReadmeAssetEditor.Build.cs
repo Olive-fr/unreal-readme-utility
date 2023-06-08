@@ -4,23 +4,25 @@ using UnrealBuildTool;
 
 public class ReadmeAssetEditor : ModuleRules
 {
-	public ReadmeAssetEditor(TargetInfo Target)
+	public ReadmeAssetEditor(ReadOnlyTargetRules Target) : base(Target)
 	{
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[] {
-				"AssetTools",
-				"MainFrame",
+				// "AssetTools",
+				// "MainFrame",
+				
+				
 //				"WorkspaceMenuStructure",
 			}
 		);
 
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"ReadmeAssetEditor/Private",
-				"ReadmeAssetEditor/Private/AssetTools",
-				"ReadmeAssetEditor/Private/Factories",
-				"ReadmeAssetEditor/Private/Styles",
-				"ReadmeAssetEditor/Private/Widgets",
+				// "ReadmeAssetEditor/Private",
+				// "ReadmeAssetEditor/Private/AssetTools",
+				// "ReadmeAssetEditor/Private/Factories",
+				// "ReadmeAssetEditor/Private/Styles",
+				// "ReadmeAssetEditor/Private/Widgets",
 			}
 		);
 
@@ -36,7 +38,6 @@ public class ReadmeAssetEditor : ModuleRules
                 "Projects",
 				"Slate",
 				"SlateCore",
-                "ReadmeAsset",
 				"UnrealEd",
 			}
 		);
