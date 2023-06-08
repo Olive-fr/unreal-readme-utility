@@ -15,7 +15,16 @@ public class ReadmeAssetEditor : ModuleRules
 //				"WorkspaceMenuStructure",
 			}
 		);
-
+		PublicDependencyModuleNames.AddRange(
+			new string[]
+			{
+				"WebBrowser",
+				"UMG",
+				"ApplicationCore",
+				//"maddy"
+				// ... add other public dependencies that you statically link with here ...
+			}
+		);
 		PrivateIncludePaths.AddRange(
 			new string[] {
 				// "ReadmeAssetEditor/Private",

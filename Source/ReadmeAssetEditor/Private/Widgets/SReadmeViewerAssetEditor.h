@@ -2,8 +2,9 @@
 
 #pragma once
 #include "ReadmeAsset.h"
-#include "Widgets/Input/SMultiLineEditableTextBox.h"
-#include "Widgets/Text/SRichTextBlock.h"
+#include "MD4C/md4c.h"
+#include "WebBrowser/Public/IWebBrowserWindow.h"
+#include "WebBrowser/Public/SWebBrowserView.h"
 
 
 /**
@@ -30,15 +31,18 @@ public:
 	 * @param InStyleSet The style set to use.
 	 */
 	void Construct(const FArguments& InArgs, UReadmeAsset* InReadmeAsset, const TSharedRef<ISlateStyle>& InStyle);
-	FText TransformText(FText& NewText);
+	static void process_output(const MD_CHAR* text, MD_SIZE size, void* userdata);
+	void ParseTextMarkdownAsync(FText& NewText);
 	FString RegexReplace(FString target, FString pattern, FString substitution, bool ignoreCase, bool multiline);
 
+	std::string TempResult;
 
 private:
 
 	/** Holds the editable text box widget. */
-	TSharedPtr<SRichTextBlock> TextBox;
-
+	TSharedPtr<SWebBrowser> WebBrowser;
+	// IWebBrowserWindow sdfd;
+	
 	/** Pointer to the text asset that is being edited. */
 	UReadmeAsset* ReadmeAsset;
 };
