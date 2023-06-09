@@ -31,11 +31,12 @@ public:
 	 * @param InStyleSet The style set to use.
 	 */
 	void Construct(const FArguments& InArgs, UReadmeAsset* InReadmeAsset, const TSharedRef<ISlateStyle>& InStyle);
-	static void process_output(const MD_CHAR* text, MD_SIZE size, void* userdata);
-	void ParseTextMarkdownAsync(FText& NewText);
+	FString GetCssHtmlBlock();
+	static void HtmlParserReassembler(const MD_CHAR* text, MD_SIZE size, void* userdata);
+	void ParseTextMarkdown();
 	FString RegexReplace(FString target, FString pattern, FString substitution, bool ignoreCase, bool multiline);
 
-	std::string TempResult;
+	std::string MarkdownParserResult;
 
 private:
 
@@ -45,4 +46,7 @@ private:
 	
 	/** Pointer to the text asset that is being edited. */
 	UReadmeAsset* ReadmeAsset;
+
+	
+	TBaseDelegate<void> ReadmeTextChangedDelegate;
 };

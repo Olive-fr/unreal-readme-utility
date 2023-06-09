@@ -29,5 +29,5 @@ public:
 	
 	/** Holds the stored text. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="ReadmeAsset")
-	FText Text;
+	FText Text = FText::FromString("# Documentation");
 };
