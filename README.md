@@ -1,30 +1,18 @@
-# TextAsset
+# ReadmeAsset
 
-Unreal Engine 4 plug-in that adds a text asset and editor for personal notes.
+Unreal Engine 5 plug-in that adds a readme asset and editor for in-project documentation.
 
 ![Screenshot](Docs/screenshot.png)
 
 
 ## About
 
-The TextAsset plug-in implements two modules that demonstrate how to add a new
-type of content asset to Unreal Engine 4. The asset itself stores a simple text
-string that can be used for adding personal notes or other textual information
-to your project, or to be consumed within Blueprints. The plug-in also includes
-an asset editor, asset factories, and asset actions for the Content Browser. 
+The ReadmeUtility plug-in allow you to write a part of your project documentation in markdown format directly in editor. This can be useful. The sources are in [Github](https://github.com/Olive-fr/unreal-readme-utility)
 
 
 ## Supported Platforms
 
-This plug-in was last built against **Unreal Engine 4.10**. It works on all
-platforms.
-
-
-## Dependencies
-
-This plug-in requires Visual Studio and either a C++ code project or the full
-Unreal Engine 4 source code from GitHub. If you are new to programming in UE4,
-please see the official [Programming Guide](https://docs.unrealengine.com/latest/INT/Programming/index.html)! 
+This plug-in was last built against **Unreal Engine 5.1.1**. It may works on Windows/Linux/MacOS but it's only tested on Windows yet.
 
 
 ## Usage
@@ -42,16 +30,13 @@ source code from GitHub (4.9 or higher) is required for this.
 After compiling the plug-in, you have to **enable it** in Unreal Editor's
 plug-in browser.
 
-TODO
-
 
 ## Support
 
-Please [file an issue](https://github.com/ue4plugins/TextAsset/issues),
-submit a [pull request](https://github.com/ue4plugins/TextAsset/pulls?q=is%3Aopen+is%3Apr)
-or email us at info@headcrash.industries
+Please [file an issue](https://github.com/Olive-fr/unreal-readme-utility/issues),
+submit a [pull request](https://github.com/Olive-fr/unreal-readme-utility/pulls)
 
 
 ## References
 
-* [Introduction to UE4 Plugins](https://wiki.unrealengine.com/An_Introduction_to_UE4_Plugins)
+The markdown parser used is available [here](https://github.com/mity/md4c)
