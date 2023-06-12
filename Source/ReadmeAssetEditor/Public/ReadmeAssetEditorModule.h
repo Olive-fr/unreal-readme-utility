@@ -1,4 +1,7 @@
-﻿#pragma once
+﻿/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
+#pragma once
 
 #include "CoreMinimal.h"
 #include "AssetToolsModule.h"

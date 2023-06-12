@@ -1,10 +1,18 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
 
 #pragma once
+#include <string>
+
+#include "Md4cLibraryInterface.h"
 #include "ReadmeAsset.h"
-#include "MD4C/md4c.h"
 #include "WebBrowser/Public/IWebBrowserWindow.h"
+ 	
+
+#include "Delegates/DelegateSignatureImpl.inl"
 #include "WebBrowser/Public/SWebBrowserView.h"
+
 
 
 /**
@@ -19,9 +27,11 @@ public:
 	SLATE_END_ARGS()
 
 public:
-
+	SReadmeViewerAssetEditor(): ReadmeAsset(nullptr) {};
+	
 	/** Virtual destructor. */
 	virtual ~SReadmeViewerAssetEditor();
+	
 
 	/**
 	 * Construct this widget
@@ -32,11 +42,9 @@ public:
 	 */
 	void Construct(const FArguments& InArgs, UReadmeAsset* InReadmeAsset, const TSharedRef<ISlateStyle>& InStyle);
 	FString GetCssHtmlBlock();
-	static void HtmlParserReassembler(const MD_CHAR* text, MD_SIZE size, void* userdata);
+	//static void HtmlParserReassembler(const MD_CHAR* text, MD_SIZE size, void* userdata);
 	void ParseTextMarkdown();
 	FString RegexReplace(FString target, FString pattern, FString substitution, bool ignoreCase, bool multiline);
-
-	std::string MarkdownParserResult;
 
 private:
 
@@ -48,5 +56,7 @@ private:
 	UReadmeAsset* ReadmeAsset;
 
 	
-	TBaseDelegate<void> ReadmeTextChangedDelegate;
+	TDelegate<void(void)> ReadmeTextChangedDelegate;
+	
+	FMd4cInterface Md4cModuleInstance;
 };

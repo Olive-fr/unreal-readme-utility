@@ -1,4 +1,6 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
 
 #include "ReadmeAssetFactory.h"
 

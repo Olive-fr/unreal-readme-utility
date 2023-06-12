@@ -8,17 +8,24 @@
 	"CreatedBy": "Olive",
 	"CreatedByURL": "https://github.com/Olive-fr",
 	"DocsURL": "",
-	"MarketplaceURL": "",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/7c11b2fded1546019911477c3e39ddc2",
 	"SupportURL": "",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+	"EngineVersion": "5.2.0",
+	
 	"Modules": [
 		{
 			"Name" : "ReadmeAssetEditor",
 			"Type" : "Editor",
-			"LoadingPhase" : "Default"
+			"LoadingPhase" : "Default",
+			"WhitelistPlatforms": [
+				"Linux",
+				"Mac",
+				"Win64"
+			]
 		}
 	],
 	"Plugins": [

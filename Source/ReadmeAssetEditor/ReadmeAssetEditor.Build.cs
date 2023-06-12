@@ -1,6 +1,9 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
 
 using UnrealBuildTool;
+using System.IO;
 
 public class ReadmeAssetEditor : ModuleRules
 {
@@ -8,11 +11,6 @@ public class ReadmeAssetEditor : ModuleRules
 	{
 		DynamicallyLoadedModuleNames.AddRange(
 			new string[] {
-				// "AssetTools",
-				// "MainFrame",
-				
-				
-//				"WorkspaceMenuStructure",
 			}
 		);
 		PublicDependencyModuleNames.AddRange(
@@ -21,17 +19,11 @@ public class ReadmeAssetEditor : ModuleRules
 				"WebBrowser",
 				"UMG",
 				"ApplicationCore",
-				//"maddy"
-				// ... add other public dependencies that you statically link with here ...
+				"Md4cLibrary"
 			}
 		);
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				// "ReadmeAssetEditor/Private",
-				// "ReadmeAssetEditor/Private/AssetTools",
-				// "ReadmeAssetEditor/Private/Factories",
-				// "ReadmeAssetEditor/Private/Styles",
-				// "ReadmeAssetEditor/Private/Widgets",
 			}
 		);
 
@@ -55,7 +47,6 @@ public class ReadmeAssetEditor : ModuleRules
 			new string[] {
 				"AssetTools",
 				"UnrealEd",
-//				"WorkspaceMenuStructure",
 			}
 		);
 	}

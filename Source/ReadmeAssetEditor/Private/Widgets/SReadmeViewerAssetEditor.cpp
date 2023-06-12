@@ -1,13 +1,12 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
 
 #include "SReadmeViewerAssetEditor.h"
-
-#include <regex>
 
 #include "ReadmeAssetEditorModule.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 #include "Internationalization/Regex.h"
-#include "MD4C/md4c-html.h"
 #include "Misc/FileHelper.h"
 #include "Styling/SlateStyle.h"
 #include "Windows/LiveCoding/Private/External/LC_FixedSizeString.h"
@@ -74,20 +73,10 @@ void SReadmeViewerAssetEditor::ParseTextMarkdown()
 	{
 		return;
 	}
-	// To call the Markdown parser, we first need to adapt the type of our text
-	const FString NewTextString = NewText.ToString();
-	const std::string ConvertedTextToMarkdownParser{TCHAR_TO_UTF8(*NewTextString)};
 
-	MarkdownParserResult = "";
-
-	// This function written in c, sources can be found here: https://github.com/mity/md4c
-	// will fill the result by a callback function, HtmlParserReassembler in our case, in the TempResult variable
-	if (const int MarkdownParserResultCode = md_html(ConvertedTextToMarkdownParser.c_str(), ConvertedTextToMarkdownParser.length(), HtmlParserReassembler, this, 0, MD_HTML_FLAG_XHTML); MarkdownParserResultCode == 1)
-	{
-		return;
-	}
-	
-	const FString HtmlBodyContent = FString(UTF8_TO_TCHAR(MarkdownParserResult.c_str()));
+	FString InMarkdown = NewText.ToString();
+	FString HtmlBodyContent = FString();
+	Md4cModuleInstance.ParseMarkdownAsHtml(InMarkdown, HtmlBodyContent);
 
 	const FString CssBlock = GetCssHtmlBlock();
 
@@ -95,22 +84,6 @@ void SReadmeViewerAssetEditor::ParseTextMarkdown()
 
 	WebBrowser->LoadString(HtmlPageContent, TEXT(""));
 	WebBrowser->Reload();
-}
-
-
-void SReadmeViewerAssetEditor::HtmlParserReassembler(const MD_CHAR* Text, MD_SIZE size, void* userdata)
-{
-	SReadmeViewerAssetEditor* This = static_cast<SReadmeViewerAssetEditor*>(userdata);
-	if (size > 0 && size < std::strlen(Text))
-	{
-		std::string str(Text);
-		This->MarkdownParserResult.append(str.substr(0, size));
-	}
-	else
-	{
-		This->MarkdownParserResult.append(Text);
-	}
-	return;
 }
 
 #undef LOCTEXT_NAMESPACE

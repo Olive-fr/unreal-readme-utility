@@ -1,4 +1,8 @@
-﻿#include "ReadmeEditorCommands.h"
+﻿/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
+
+#include "ReadmeEditorCommands.h"
 
 #include "Framework/Commands/InputChord.h"
 #include "Framework/Commands/UICommandInfo.h"

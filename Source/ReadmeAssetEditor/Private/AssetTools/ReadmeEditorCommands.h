@@ -1,4 +1,8 @@
-﻿#pragma once
+﻿/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
+
+#pragma once
 
 #include "Framework/Commands/Commands.h"
 #include "Internationalization/Internationalization.h"

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2023 Olive, https://github.com/Olive-fr
+ */
+
 #include "ReadmeAssetEditorModule.h"
 
 #include "AssetTools/ReadmeEditorCommands.h"
