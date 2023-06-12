@@ -26,6 +26,15 @@
 				"Mac",
 				"Win64"
 			]
+		}, {
+			"Name": "Md4cLibrary",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Linux",
+				"Mac",
+				"Win64"
+			]
 		}
 	],
 	"Plugins": [

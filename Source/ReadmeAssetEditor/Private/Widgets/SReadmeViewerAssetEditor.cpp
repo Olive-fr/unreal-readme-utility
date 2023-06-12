@@ -6,11 +6,9 @@
 
 #include "ReadmeAssetEditorModule.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
-#include "Internationalization/Regex.h"
 #include "Misc/FileHelper.h"
 #include "Styling/SlateStyle.h"
 #include "Windows/LiveCoding/Private/External/LC_FixedSizeString.h"
-
 
 #define LOCTEXT_NAMESPACE "SReadmeViewerAssetEditor"
 
@@ -73,7 +71,6 @@ void SReadmeViewerAssetEditor::ParseTextMarkdown()
 	{
 		return;
 	}
-
 	FString InMarkdown = NewText.ToString();
 	FString HtmlBodyContent = FString();
 	Md4cModuleInstance.ParseMarkdownAsHtml(InMarkdown, HtmlBodyContent);

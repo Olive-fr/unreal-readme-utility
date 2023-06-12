@@ -4,6 +4,7 @@
 
 #pragma once
 
+
 #include "AssetTypeActions_Base.h"
 
 
@@ -14,7 +15,6 @@ class FReadmeAssetActions
 	: public FAssetTypeActions_Base
 {
 public:
-
 	/**
 	 * Creates and initializes a new instance.
 	 *

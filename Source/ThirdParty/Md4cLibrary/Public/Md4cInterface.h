@@ -6,6 +6,7 @@
 
 #include "CoreMinimal.h"
 #include "md4c-html.h"
+#include <string>
 
 /**
  * 

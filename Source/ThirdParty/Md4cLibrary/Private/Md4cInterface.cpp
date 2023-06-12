@@ -2,9 +2,9 @@
  * Copyright (C) 2023 Olive, https://github.com/Olive-fr
  */
 
-#include "Md4cLibraryInterface.h"
+#include "Md4cInterface.h"
 #include "HAL/Platform.h"
-
+#include "Internationalization/Text.h"
 
 #include <string>
 

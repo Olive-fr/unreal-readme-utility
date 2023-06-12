@@ -5,7 +5,7 @@
 #pragma once
 #include <string>
 
-#include "Md4cLibraryInterface.h"
+#include "Md4cInterface.h"
 #include "ReadmeAsset.h"
 #include "WebBrowser/Public/IWebBrowserWindow.h"
  	
